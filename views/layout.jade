@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="Shortcut Icon" href="/favicon.ico")
+  body
+    block content
+
+    if env.NODE_ENV === 'production'
+      script(src= webpack_asset('manifest').js )
+      script(src= webpack_asset('vendor').js )
+
+    block bodyJS
